@@ -66,16 +66,17 @@ process.on("exit", function(){
 
 	for(var i = 0; i < questions.length; i++){
 		process.stdout.write(`\nQ: ${questions[i]}\n`);
-		process.stdout.write(`A: ${usersAnswers[i]}\n`);
+		process.stdout.write(`A: ${answers[i]}\n`);
+		process.stdout.write(`I: ${usersAnswers[i]}\n`);
 	}
 
 	var correctBar = "[";
 
-	for(var a = 0; a < correct; a++){
+	for(i = 0; i < correct; i++){
 		correctBar = correctBar+"C";
 	}
 
-	for(var b = 0; b < (questions.length - correct); b++){
+	for(i = 0; i < (questions.length - correct); i++){
 		correctBar = correctBar+"X";
 	}
 
