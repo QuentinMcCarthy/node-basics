@@ -1,4 +1,4 @@
-process.stdout.write("\n###- Hello and welcome to the Quiz -###\n\n");
+process.stdout.write(`\n###- Hello and welcome to the Quiz -###\n`);
 
 var questions = [
 	"What do you call a deer with no eyes?",
@@ -18,8 +18,10 @@ var answers = [
 
 var usersAnswers = [];
 
+var correct = 0;
+
 function askQuestion(i){
-	process.stdout.write(`Q: ${questions[i]}\n\n`);
+	process.stdout.write(`\nQ: ${questions[i]}\n\n`);
 }
 
 process.stdin.on("data", function(answer){
@@ -30,7 +32,8 @@ process.stdin.on("data", function(answer){
 	var inputAnswer = answer.toString().trim();
 
 	if(inputAnswer == answers[questionNumber]){
-		process.stdout.write(`\nCorrect.\n\n`);
+		// process.stdout.write(`\nCorrect.\n\n`);
+		correct++
 		usersAnswers.push(inputAnswer);
 
 		if(usersAnswers.length < answers.length){
@@ -39,12 +42,22 @@ process.stdin.on("data", function(answer){
 			process.exit();
 		}
 	}else{
-		process.stdout.write("\nIncorrect. Try again.\n\n");
+		// process.stdout.write("\nIncorrect. Try again.\n\n");
+
+		usersAnswers.push(inputAnswer);
+
+		if(usersAnswers.length < answers.length){
+			askQuestion(usersAnswers.length);
+		} else{
+			process.exit();
+		}
 	}
 });
 
 askQuestion(0);
 
 process.on("exit", function(){
-	process.stdout.write(`Congratulations. Quiz complete.\n\n`);
+	// process.stdout.write(`Congratulations. Quiz complete.\n\n`);
+	process.stdout.write(`Quiz complete.`);
+	process.stdout.write(`\nYou got ${correct}/${questions.length} questions correct\n\n`);
 });
