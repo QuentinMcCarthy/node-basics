@@ -2,6 +2,7 @@ process.stdout.write(`\n###- Hello and welcome to the Quiz -###\n`);
 
 var questions = [
 	"What do you call a deer with no eyes?",
+	"What do you call a deer with no eyes and no legs?",
 	"What is brown and sticky?",
 	"What is the answer to life, the universe and everything?",
 	"What is the plastic part at the end of your shoelaces called?",
@@ -10,6 +11,7 @@ var questions = [
 
 var answers = [
 	"No idea",
+	"Still no idea",
 	"A stick",
 	"42",
 	"An aglet",
