@@ -60,6 +60,14 @@ askQuestion(0);
 
 process.on("exit", function(){
 	// process.stdout.write(`Congratulations. Quiz complete.\n\n`);
-	process.stdout.write(`Quiz complete.`);
+	process.stdout.write(`\nQuiz complete.\n`);
+
+	process.stdout.write(`\nYour answers:\n`);
+
+	for(var i = 0; i < questions.length; i++){
+		process.stdout.write(`\nQ: ${questions[i]}\n`);
+		process.stdout.write(`A: ${usersAnswers[i]}\n`);
+	}
+
 	process.stdout.write(`\nYou got ${correct}/${questions.length} questions correct\n\n`);
 });
