@@ -1,6 +1,6 @@
 process.stdout.write(`\n###- Hello and welcome to the Quiz -###\n`);
 
-var questions = [
+const questions = [
 	"What do you call a deer with no eyes?",
 	"What do you call a deer with no eyes and no legs?",
 	"What is brown and sticky?",
@@ -9,7 +9,7 @@ var questions = [
 	"Why did they shut the gates to Helheim?"
 ];
 
-var answers = [
+const answers = [
 	"No idea",
 	"Still no idea",
 	"A stick",
@@ -30,8 +30,8 @@ process.stdin.on("data", function(answer){
 	// process.stdout.write(`I: ${answer}`);
 	// process.exit();
 
-	var questionNumber = usersAnswers.length;
-	var inputAnswer = answer.toString().trim();
+	let questionNumber = usersAnswers.length;
+	let inputAnswer = answer.toString().trim();
 
 	if(inputAnswer == answers[questionNumber]){
 		// process.stdout.write(`\nCorrect.\n\n`);
@@ -70,7 +70,7 @@ process.on("exit", function(){
 		process.stdout.write(`I: ${usersAnswers[i]}\n`);
 	}
 
-	var correctBar = "[";
+	let correctBar = "[";
 
 	for(i = 0; i < correct; i++){
 		correctBar = correctBar+"C";
