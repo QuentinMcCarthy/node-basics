@@ -69,5 +69,17 @@ process.on("exit", function(){
 		process.stdout.write(`A: ${usersAnswers[i]}\n`);
 	}
 
-	process.stdout.write(`\nYou got ${correct}/${questions.length} questions correct\n\n`);
+	var correctBar = "[";
+
+	for(var a = 0; a < correct; a++){
+		correctBar = correctBar+"C";
+	}
+
+	for(var b = 0; b < (questions.length - correct); b++){
+		correctBar = correctBar+"X";
+	}
+
+	correctBar = correctBar+"]";
+
+	process.stdout.write(`\nYou got ${correctBar} ${correct}/${questions.length} questions correct\n\n`);
 });
